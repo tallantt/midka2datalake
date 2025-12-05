@@ -46,7 +46,6 @@ public class MinioUploader {
     }
 
     private void uploadPng() throws Exception {
-        // 1x1 transparent PNG
         byte[] png = Base64.getDecoder().decode("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z/C/HwAFgwJ/lHOg2QAAAABJRU5ErkJggg==");
         putBytes("file.png", png, "image/png");
     }
