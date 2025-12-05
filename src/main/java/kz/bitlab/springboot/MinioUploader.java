@@ -40,7 +40,16 @@ public class MinioUploader {
         putBytes("file.txt", content, "text/plain");
     }
 
+    private void uploadJson() throws Exception {
+        byte[] content = "{\"message\":\"Hi from JSON\"}".getBytes(StandardCharsets.UTF_8);
+        putBytes("file.json", content, "application/json");
+    }
 
+    private void uploadPng() throws Exception {
+        // 1x1 transparent PNG
+        byte[] png = Base64.getDecoder().decode("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z/C/HwAFgwJ/lHOg2QAAAABJRU5ErkJggg==");
+        putBytes("file.png", png, "image/png");
+    }
 
     private void putBytes(String objectName, byte[] data, String contentType) throws Exception {
         try (ByteArrayInputStream stream = new ByteArrayInputStream(data)) {
